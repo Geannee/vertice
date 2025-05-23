@@ -1,0 +1,56 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+body {
+    margin: 20px;
+    padding: 0;
+    height: 100vh; 
+    background-image: url('images/Login_V.png'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+full-height {
+    min-height: 100vh;
+}
+
+login-wrapper {
+    max-width: 400px; 
+    width: 100%; 
+    margin-right: 20px;
+    margin-top: 40px;  
+    margin-bottom: 30px;
+}
+
+
+.logo-login {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 50px; 
+    margin-top: 20px;     
+    margin-left: auto;    
+    right: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+
+.login-container {
+    background-color: rgba(0,0,0,0);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
