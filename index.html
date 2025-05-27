@@ -19,50 +19,47 @@
 </head>
 <body style="background: url('/vertice/images/Login_V.png') no-repeat center center fixed; background-size: cover;">
 
-    <div class="overlay"></div> <div class="container-fluid d-flex full-height">
-        <div class="row w-100 justify-content-end align-items-center">
+    <div class="overlay"></div>
+    <div class="container-fluid d-flex full-height flex-column">
+        <!-- Login centralizado -->
+        <div class="row w-100 justify-content-end align-items-center flex-grow-1">
             <div class="col-12 col-md-6 col-lg-4 d-flex flex-column align-items-end login-wrapper">
-           
-            <img src="images/Logo 2 PNG.png" alt="Logo da Empresa" class="img-fluid mb-3 logo-login">
-            
-            <div class="login-container">
-                <h2 class="text-center mb-4">Login</h2>
-                <form>
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Usuário</label>
-                        <input type="text" class="form-control" id="username" placeholder="Digite seu usuário">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary">Entrar</button>
-                    </div>
-                    <hr>
-                    <p class="text-center">
-                        <a href="recSenha.html" class="text-decoration-none">Esqueceu a senha?</a>
-                    </p>
-                    <p class="text-center">
-                        Não tem uma conta? <a href="cadastrarsenha.html" class="text-decoration-none">Cadastre-se</a>
-                    </p>
-                    <div class="mb-4 d-flex justify-content-center">
-                        <div style="max-width: 350px; width: 100%;">
+                <img src="images/Logo 2 PNG.png" alt="Logo da Empresa" class="img-fluid mb-3 logo-login">
+                <div class="login-container">
+                    <h2 class="text-center mb-4">Login</h2>
+                    <!-- Barra de seleção de perfil abaixo do login -->
+                    <form id="loginForm">
+                        <div class="mb-4">
                             <label for="perfilBusca" class="form-label fw-bold">Acessar área do sistema</label>
-                            <div class="input-group" style="background: #FEF5E6; border-radius: 0.5rem;">
-                                <select class="form-select" id="perfilBusca" style="background: #FEF5E6; border: none;">
-                                    <option value="">Selecione o perfil</option>
-                                    <option value="cliente">Cliente</option>
-                                    <option value="atendente">Atendente</option>
-                                    <option value="gerente">Gerente</option>
-                                </select>
-                                <button class="btn btn-sm" type="button" id="btnAcessarPerfil" style="background-color: #D88509; color: #fff; min-width: 90px; transition: background 0.2s;">Acessar</button>
-                            </div>
+                            <select class="form-select" id="perfilBusca" style="background: #FEF5E6; border: none;" required>
+                                <option value="">Selecione o perfil</option>
+                                <option value="cliente">Cliente</option>
+                                <option value="atendente">Atendente</option>
+                                <option value="gerente">Gerente</option>
+                                <option value="administrador">Administrador</option>
+                            </select>
                         </div>
-                    </div>
-                </form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-bold">Usuário</label>
+                            <input type="text" class="form-control" id="username" placeholder="Digite seu usuário" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-bold">Senha</label>
+                            <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Entrar</button>
+                        </div>
+                        <hr>
+                        <p class="text-center">
+                            <a href="recSenha.html" class="text-decoration-none">Esqueceu a senha?</a>
+                        </p>
+                        <p class="text-center">
+                            Não tem uma conta? <a href="cadastrarsenha.html" class="text-decoration-none">Cadastre-se</a>
+                        </p>
+                    </form>
+                </div>
             </div>
-        </div>
         </div>
 
     <!-- Modal Recuperar Senha -->
@@ -96,16 +93,38 @@
       modal.hide();
     });
 
-    document.getElementById('btnAcessarPerfil').onclick = function() {
+    document.getElementById('loginForm').onsubmit = function(e) {
+        e.preventDefault();
         var perfil = document.getElementById('perfilBusca').value;
-        if(perfil === 'cliente') {
-            window.location.href = 'pages/cliente.html';
-        } else if(perfil === 'atendente') {
+        var usuario = document.getElementById('username').value.trim();
+        // Remove validação de senha
+        if (!perfil) {
+            alert('Selecione o perfil para acessar!');
+            document.getElementById('perfilBusca').focus();
+            return;
+        }
+        if (!usuario) {
+            alert('Digite o usuário!');
+            document.getElementById('username').focus();
+            return;
+        }
+        // Cliente específico: CPF 60616733100
+        if (perfil === 'cliente') {
+            if (usuario === '60616733100') {
+                window.location.href = 'pages/cliente.html';
+                return;
+            } else {
+                alert('Usuário inválido para o cliente.');
+                document.getElementById('username').focus();
+                return;
+            }
+        }
+        if(perfil === 'atendente') {
             window.location.href = 'pages/funcionarios/atendente.html';
         } else if(perfil === 'gerente') {
             window.location.href = 'pages/funcionarios/gerente.html';
-        } else {
-            alert('Selecione um perfil para acessar!');
+        } else if(perfil === 'administrador') {
+            window.location.href = 'pages/funcionarios/administrador.html';
         }
     };
     </script>
