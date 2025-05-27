@@ -15,11 +15,83 @@
         #perfilBusca:focus {
             box-shadow: none;
         }
+        .nav-link.sair-link {
+            color: #d88509 !important;
+            transition: color 0.2s;
+        }
+        .nav-link.sair-link svg {
+            fill: #d88509;
+            transition: fill 0.2s;
+        }
+        .nav-link.sair-link:hover, .nav-link.sair-link:focus {
+            color: #F6A122 !important;
+        }
+        .nav-link.sair-link:hover svg, .nav-link.sair-link:focus svg {
+            fill: #F6A122;
+        }
+        /* Botões padrão */
+        .btn-primary, .btn-outline-primary, .btn-outline-info {
+            background-color: #d88509;
+            border-color: #d88509;
+            color: #fff;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+        }
+        .btn-outline-primary, .btn-outline-info {
+            background-color: transparent;
+            color: #d88509;
+        }
+        .btn-primary:hover, .btn-primary:focus,
+        .btn-outline-primary:hover, .btn-outline-primary:focus,
+        .btn-outline-info:hover, .btn-outline-info:focus {
+            background-color: #f6a122 !important;
+            border-color: #f6a122 !important;
+            color: #fff !important;
+        }
+        /* Ícone de notificação no topo */
+        .navbar .btn-outline-primary svg {
+            fill: #d88509;
+            transition: fill 0.2s;
+        }
+        .navbar .btn-outline-primary:hover svg,
+        .navbar .btn-outline-primary:focus svg {
+            fill: #f6a122;
+        }
+        /* Menu lateral - sistema de cores */
+        .sidebar .nav-link {
+            color: #d88509;
+            transition: color 0.2s;
+        }
+        .sidebar .nav-link.active,
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link:focus {
+            color: #F6A122 !important;
+        }
+        .sidebar .nav-link svg {
+            fill: #d88509;
+            transition: fill 0.2s;
+        }
+        .sidebar .nav-link:hover svg,
+        .sidebar .nav-link:focus svg {
+            fill: #F6A122;
+        }
+        /* Mantém o destaque especial para o botão sair */
+        .nav-link.sair-link {
+            color: #d88509 !important;
+        }
+        .nav-link.sair-link:hover, .nav-link.sair-link:focus {
+            color: #F6A122 !important;
+        }
+        .nav-link.sair-link svg {
+            fill: #d88509;
+        }
+        .nav-link.sair-link:hover svg, .nav-link.sair-link:focus svg {
+            fill: #F6A122;
+        }
     </style>
 </head>
 
 
-<body class="bg-light" style="background: url('../images/BGrecsenha.png') no-repeat center center fixed; background-size: cover;">
+<body class="bg-light vh-100 overflow-hidden" style="background: url('../images/BGrecsenha.png') no-repeat center center fixed; background-size: cover;">
     
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
@@ -43,54 +115,340 @@
                 <div class="d-flex flex-column align-items-center py-4">
                     <img src="../images/Logo 2 PNG.png" alt="Logo" class="img-fluid mb-3" style="max-width: 120px;">
                 </div>
-                <div class="position-sticky pt-3">
+                <button class="navbar-toggler d-md-none mx-3 my-2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse d-md-block" id="sidebarMenu">
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" href="#contaCorrente">
+                                <span>Conta Corrente</span>
+                            </a>
                         </li>
                         <li class="nav-item mb-2">
-                            <a class="nav-link" href="#contaCorrente">Conta Corrente</a>
+                            <a class="nav-link" href="#contaPoupanca">
+                                <span>Conta Poupança</span>
+                            </a>
                         </li>
                         <li class="nav-item mb-2">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#menuConta" role="button" aria-expanded="false" aria-controls="menuConta">Funções da Conta</a>
-                            <div class="collapse ps-3" id="menuConta">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item"><a class="nav-link" href="#saldo">Saldo</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#transferencia">Transferência</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#extrato">Extrato</a></li>
-                                </ul>
-                            </div>
+                            <a class="nav-link" href="#contaInvestimento">
+                                <span>Conta Investimento</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2 mt-4">
+                            <a class="nav-link fw-bold d-flex align-items-center sair-link" href="../index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-box-arrow-left me-2" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 15a1 1 0 0 0 1-1v-2a.5.5 0 0 1 1 0v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2a.5.5 0 0 1-1 0V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6z"/>
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                </svg>
+                                <span>Sair</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <!-- Conteúdo principal -->
             <main class="col ps-md-0 ms-0 ms-md-2 px-3">
-                <section id="contaCorrente" class="my-4">
+                <!-- Adiciona seções de abas no conteúdo principal para navegação -->
+                <section id="contaCorrente" class="my-4" style="display: none;">
                     <h4>Conta Corrente</h4>
-                    <div id="saldo" class="mb-4">
-                        <h5>Saldo</h5>
-                        <div id="resultadoSaldo"></div>
-                        <button class="btn btn-outline-primary btn-sm mt-2" onclick="consultarSaldo()">Ver Saldo</button>
-                    </div>
-                    <div id="transferencia" class="mb-4">
-                        <h5>Transferência</h5>
-                        <form id="formTransferencia">
-                            <div class="mb-2">
-                                <label class="form-label">Conta de destino</label>
-                                <input type="text" class="form-control" id="contaDestino" required>
+                    <div class="row g-3">
+                        <!-- Saldo -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-cash-stack me-3" viewBox="0 0 16 16">
+                                            <path d="M14 4.5V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4.5h12z"/>
+                                            <path d="M15 3a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v1.5A1.5 1.5 0 0 0 2.5 6h11A1.5 1.5 0 0 0 15 4.5V3zm-1 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V3h12z"/>
+                                        </svg>
+                                        <h5 class="card-title mb-0" style="color: #d88509;">Saldo</h5>
+                                    </div>
+                                    <div class="fs-5 fw-bold ms-auto" id="resultadoSaldo" style="color: #d88509;">Saldo Atual: R$ 1500,00</div>
+                                </div>
                             </div>
-                            <div class="mb-2">
-                                <label class="form-label">Valor</label>
-                                <input type="number" class="form-control" id="valorTransferencia" min="1" required>
+                        </div>
+                        <!-- Transferência -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-currency-exchange me-3" viewBox="0 0 16 16">
+                                            <path d="M8.5 1a.5.5 0 0 1 .5.5V3a5 5 0 1 1-4.546 2.914.5.5 0 1 1 .892-.45A4 4 0 1 0 8 4V2.5a.5.5 0 0 1 1 0V4a5 5 0 0 1-4.546 4.914.5.5 0 1 1-.892-.45A4 4 0 1 0 8 12V13.5a.5.5 0 0 1-1 0V12a5 5 0 0 1 4.546-4.914.5.5 0 1 1 .892.45A4 4 0 1 0 8 4V2.5a.5.5 0 0 1 .5-.5z"/>
+                                    </svg>
+                                    <h5 class="card-title mb-0">Transferência</h5>
+                                </div>
+                                <form id="formTransferencia" class="d-flex flex-column flex-md-row align-items-center w-100 justify-content-end">
+                                    <div class="mb-2 mb-md-0 me-md-2">
+                                        <label class="form-label mb-1">Agência</label>
+                                        <input type="text" class="form-control" id="agenciaTransferencia" required>
+                                    </div>
+                                    <div class="mb-2 mb-md-0 me-md-2">
+                                        <label class="form-label mb-1">Conta de destino</label>
+                                        <input type="text" class="form-control" id="contaDestino" required>
+                                    </div>
+                                    <div class="mb-2 mb-md-0 me-md-2">
+                                        <label class="form-label mb-1">Valor</label>
+                                        <input type="number" class="form-control" id="valorTransferencia" min="1" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm">Transferir</button>
+                                </form>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Transferir</button>
-                        </form>
+                        </div>
+                        <!-- Saque -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-cash-coin me-3" viewBox="0 0 16 16">
+                                            <path d="M11 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h6zm0 1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+                                            <path d="M8 6.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                        <h5 class="card-title mb-0">Saque</h5>
+                                    </div>
+                                    <form id="formSaque" class="d-flex flex-column flex-md-row align-items-center w-100 justify-content-end">
+                                        <div class="mb-2 mb-md-0 me-md-2">
+                                            <label class="form-label mb-1">Valor</label>
+                                            <input type="number" class="form-control" id="valorSaque" min="1" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Sacar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Depósito -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-arrow-down-circle me-3" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+                                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.147 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5A.5.5 0 0 0 8 12z"/>
+                                        </svg>
+                                        <h5 class="card-title mb-0">Depósito</h5>
+                                    </div>
+                                    <form id="formDeposito" class="d-flex flex-column flex-md-row align-items-center w-100 justify-content-end">
+                                        <div class="mb-2 mb-md-0 me-md-2">
+                                            <label class="form-label mb-1">Valor</label>
+                                            <input type="number" class="form-control" id="valorDeposito" min="1" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Depositar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="extrato" class="mb-4">
-                        <h5>Extrato</h5>
-                        <button class="btn btn-outline-info btn-sm mb-2" onclick="mostrarExtrato()">Ver Extrato</button>
-                        <div id="resultadoExtrato"></div>
+                </section>
+                <section id="contaPoupanca" class="my-4" style="display: none;">
+                    <h4>Conta Poupança</h4>
+                    <div class="row g-3">
+                        <!-- Saldo Poupança -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-piggy-bank me-3" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+                                            <path d="M7 1a5 5 0 0 0-4.546 2.914A3 3 0 0 0 0 7c0 1.098.628 2.064 1.528 2.563A5.002 5.002 0 0 0 7 15a5.002 5.002 0 0 0 5.472-5.437A3 3 0 0 0 16 7a3 3 0 0 0-2.454-2.914A5 5 0 0 0 7 1zm0 1a4 4 0 0 1 3.995 3.8A3.001 3.001 0 0 0 13 7c0 .512-.13 1-.357 1.414A4.002 4.002 0 0 1 7 14a4.002 4.002 0 0 1-4.643-5.586A3.001 3.001 0 0 0 1 7c0-.512.13-1 .357-1.414A4.002 4.002 0 0 1 7 2z"/>
+                                        </svg>
+                                        <h5 class="card-title mb-0" style="color: #d88509;">Saldo</h5>
+                                    </div>
+                                    <div class="fs-5 fw-bold ms-auto" style="color: #d88509;">Saldo Atual: R$ 800,00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Depósito Poupança -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-arrow-down-circle me-3" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+                                            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.147 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 .708.708L7.5 5.707V11.5A.5.5 0 0 0 8 12z"/>
+                                        </svg>
+                                        <h5 class="card-title mb-0">Depósito</h5>
+                                    </div>
+                                    <form id="formDepositoPoupanca" class="d-flex flex-column flex-md-row align-items-center w-100 justify-content-end">
+                                        <div class="mb-2 mb-md-0 me-md-2">
+                                            <label class="form-label mb-1">Valor</label>
+                                            <input type="number" class="form-control" id="valorDepositoPoupanca" min="1" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Depositar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Reserva Poupança -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-shield-check me-3" viewBox="0 0 16 16">
+                                            <path d="M5.072 1.01a.5.5 0 0 1 .428 0l5.5 2.5a.5.5 0 0 1 .272.447v4.5c0 2.5-1.5 4.5-4 6.5-2.5-2-4-4-4-6.5v-4.5a.5.5 0 0 1 .272-.447l5.5-2.5zM6.854 8.854a.5.5 0 0 0 .708 0l2-2a.5.5 0 1 0-.708-.708L7.5 7.293 6.354 6.146a.5.5 0 1 0-.708.708l1.208 1.208z"/>
+                                        </svg>
+                                        <h5 class="card-title mb-0">Reserva</h5>
+                                    </div>
+                                    <form id="formReservaPoupanca" class="d-flex flex-column flex-md-row align-items-center w-100 justify-content-end">
+                                        <div class="mb-2 mb-md-0 me-md-2">
+                                            <label class="form-label mb-1">Valor para reservar</label>
+                                            <input type="number" class="form-control" id="valorReservaPoupanca" min="1" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Reservar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Investimento Poupança -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-graph-up-arrow me-3" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0zm14.293 4.707a1 1 0 0 0-1.414 0L9 8.586 6.707 6.293a1 1 0 0 0-1.414 0l-3 3 .707.707L6 7.707l2.293 2.293a1 1 0 0 0 1.414 0l3.293-3.293a1 1 0 0 0 0-1.414z"/>
+                                        </svg>
+                                        <h5 class="card-title mb-0">Investimento</h5>
+                                    </div>
+                                    <form id="formInvestimentoPoupanca" class="d-flex flex-column flex-md-row align-items-center w-100 justify-content-end">
+                                        <div class="mb-2 mb-md-0 me-md-2">
+                                            <label class="form-label mb-1">Valor para investir</label>
+                                            <input type="number" class="form-control" id="valorInvestimentoPoupanca" min="1" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Investir</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="contaInvestimento" class="my-4" style="display: none;">
+                    <h4>Conta Investimento</h4>
+                    <div class="row g-3">
+                        <!-- Saldos Investimento -->
+                        <div class="col-12">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#d88509" class="bi bi-wallet2 me-3" viewBox="0 0 16 16">
+                                            <path d="M12 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h8zm0 1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
+                                        </svg>
+                                        <h5 class="card-title mb-0" style="color: #d88509;">Saldo Investimento</h5>
+                                    </div>
+                                    <div class="fs-5 fw-bold ms-auto" style="color: #d88509;">R$ 5.000,00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tabela Investimento na Bolsa -->
+                        <div class="col-12">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#d88509" class="bi bi-bar-chart me-2" viewBox="0 0 16 16">
+                                            <path d="M0 0h1v15h15v1H0V0zm10 10h2v3h-2v-3zm-4-4h2v7H6V6zm-4 8h2v-2H2v2z"/>
+                                        </svg>
+                                        <h6 class="mb-0">Investimento na Bolsa</h6>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered align-middle mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th scope="col">Ação</th>
+                                                    <th scope="col">Quantidade</th>
+                                                    <th scope="col">Valor Atual</th>
+                                                    <th scope="col">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>ITUB4</td>
+                                                    <td>10</td>
+                                                    <td>R$ 30,00</td>
+                                                    <td>R$ 300,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PETR4</td>
+                                                    <td>20</td>
+                                                    <td>R$ 28,00</td>
+                                                    <td>R$ 560,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>VALE3</td>
+                                                    <td>5</td>
+                                                    <td>R$ 65,00</td>
+                                                    <td>R$ 325,00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Investimento CDI -->
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#d88509" class="bi bi-bank me-2 mb-2" viewBox="0 0 16 16">
+                                        <path d="M8 0c-.69 0-1.342.28-1.818.781L.5 6.5V7h15v-.5l-5.682-5.719A2.5 2.5 0 0 0 8 0zM1.5 6.5L8 1.057 14.5 6.5H1.5z"/>
+                                        <path d="M2 8v6h1V8H2zm2 0v6h1V8H4zm2 0v6h1V8H6zm2 0v6h1V8H8zm2 0v6h1V8h-1zm2 0v6h1V8h-1z"/>
+                                    </svg>
+                                    <h6 class="card-title mb-2">Investimento CDI</h6>
+                                    <div class="mb-2">Saldo: <span class="fw-bold" style="color: #d88509;">R$ 2.000,00</span></div>
+                                    <form id="formInvestimentoCDI" class="d-flex flex-column align-items-center">
+                                        <div class="mb-2 w-100">
+                                            <label class="form-label mb-1">Valor para investir</label>
+                                            <input type="number" class="form-control" id="valorInvestimentoCDI" min="1" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Investir</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Investimento Tesouro -->
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#d88509" class="bi bi-cash-stack me-2 mb-2" viewBox="0 0 16 16">
+                                        <path d="M14 4.5V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4.5h12z"/>
+                                        <path d="M15 3a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v1.5A1.5 1.5 0 0 0 2.5 6h11A1.5 1.5 0 0 0 15 4.5V3zm-1 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V3h12z"/>
+                                    </svg>
+                                    <h6 class="card-title mb-2">Investimento Tesouro</h6>
+                                    <div class="mb-2">Saldo: <span class="fw-bold" style="color: #d88509;">R$ 1.500,00</span></div>
+                                    <form id="formInvestimentoTesouro" class="d-flex flex-column align-items-center">
+                                        <div class="mb-2 w-100">
+                                            <label class="form-label mb-1">Valor para investir</label>
+                                            <input type="number" class="form-control" id="valorInvestimentoTesouro" min="1" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Investir</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Previsão de Retiradas -->
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#d88509" class="bi bi-calendar2-minus me-2 mb-2" viewBox="0 0 16 16">
+                                        <path d="M6 7.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
+                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3z"/>
+                                    </svg>
+                                    <h6 class="card-title mb-2">Previsão de Retiradas</h6>
+                                    <div class="mb-2">Próxima retirada disponível: <span class="fw-bold" style="color: #d88509;">10/06/2025</span></div>
+                                    <div>Valor estimado: <span class="fw-bold" style="color: #d88509;">R$ 1.200,00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Previsão de Ganhos -->
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow-sm text-center py-4">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#d88509" class="bi bi-graph-up me-2 mb-2" viewBox="0 0 16 16">
+                                        <path d="M0 0h1v15h15v1H0V0zm14.293 4.707a1 1 0 0 0-1.414 0L9 8.586 6.707 6.293a1 1 0 0 0-1.414 0l-3 3 .707.707L6 7.707l2.293 2.293a1 1 0 0 0 1.414 0l3.293-3.293a1 1 0 0 0 0-1.414z"/>
+                                    </svg>
+                                    <h6 class="card-title mb-2">Previsão de Ganhos</h6>
+                                    <div class="mb-2">Próximo rendimento: <span class="fw-bold" style="color: #d88509;">05/06/2025</span></div>
+                                    <div>Valor estimado: <span class="fw-bold" style="color: #d88509;">R$ 350,00</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </main>
@@ -98,6 +456,36 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../scripts/cliente.js"></script>
+    <script>
+        // Exibe apenas a seção Conta Corrente ao clicar no menu lateral
+        const menuLinks = document.querySelectorAll('.sidebar .nav-link');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#contaCorrente') {
+                    e.preventDefault();
+                    document.getElementById('contaCorrente').style.display = 'block';
+                    document.getElementById('contaPoupanca').style.display = 'none';
+                    document.getElementById('contaInvestimento').style.display = 'none';
+                } else if (this.getAttribute('href') === '#contaPoupanca') {
+                    e.preventDefault();
+                    document.getElementById('contaCorrente').style.display = 'none';
+                    document.getElementById('contaPoupanca').style.display = 'block';
+                    document.getElementById('contaInvestimento').style.display = 'none';
+                } else if (this.getAttribute('href') === '#contaInvestimento') {
+                    e.preventDefault();
+                    document.getElementById('contaCorrente').style.display = 'none';
+                    document.getElementById('contaPoupanca').style.display = 'none';
+                    document.getElementById('contaInvestimento').style.display = 'block';
+                }
+            });
+        });
+        // Exibe Conta Corrente por padrão
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('contaCorrente').style.display = 'block';
+            document.getElementById('contaPoupanca').style.display = 'none';
+            document.getElementById('contaInvestimento').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
 
